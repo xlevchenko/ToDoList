@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0143F8234EDDD2FA6F62F151 /* Pods_To_Do_List.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACA249885F1B31621535BD0A /* Pods_To_Do_List.framework */; };
+		6009CA4F27319CB3004A3C7B /* Pods_To_Do_List.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACA249885F1B31621535BD0A /* Pods_To_Do_List.framework */; };
+		6009CA5027319CB3004A3C7B /* Pods_To_Do_List.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = ACA249885F1B31621535BD0A /* Pods_To_Do_List.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6009CA532731B5BF004A3C7B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6009CA522731B5BF004A3C7B /* Constants.swift */; };
 		60909CE52723490700FF87E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60909CE42723490700FF87E4 /* AppDelegate.swift */; };
 		60909CE72723490700FF87E4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60909CE62723490700FF87E4 /* SceneDelegate.swift */; };
 		60909CE92723490700FF87E4 /* ToDoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60909CE82723490700FF87E4 /* ToDoListViewController.swift */; };
@@ -17,8 +19,23 @@
 		609FD6F6272F2D4700DFABF7 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609FD6F5272F2D4700DFABF7 /* TableViewCell.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		6009CA5127319CB3004A3C7B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				6009CA5027319CB3004A3C7B /* Pods_To_Do_List.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		277DC53C7670ED2D948A9F1A /* Pods-To Do List.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-To Do List.release.xcconfig"; path = "Target Support Files/Pods-To Do List/Pods-To Do List.release.xcconfig"; sourceTree = "<group>"; };
+		6009CA522731B5BF004A3C7B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		60909CE12723490700FF87E4 /* To Do List.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "To Do List.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		60909CE42723490700FF87E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		60909CE62723490700FF87E4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,7 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0143F8234EDDD2FA6F62F151 /* Pods_To_Do_List.framework in Frameworks */,
+				6009CA4F27319CB3004A3C7B /* Pods_To_Do_List.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -47,6 +64,7 @@
 		6045AB2A2729D8E20025E133 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				609FD6F5272F2D4700DFABF7 /* TableViewCell.swift */,
 				60909CEA2723490700FF87E4 /* Main.storyboard */,
 			);
 			path = View;
@@ -63,7 +81,6 @@
 		6045AB2C2729D9810025E133 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				609FD6F5272F2D4700DFABF7 /* TableViewCell.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -97,6 +114,7 @@
 				60909CED2723490900FF87E4 /* Assets.xcassets */,
 				60909CEF2723490900FF87E4 /* LaunchScreen.storyboard */,
 				60909CF22723490900FF87E4 /* Info.plist */,
+				6009CA522731B5BF004A3C7B /* Constants.swift */,
 			);
 			path = "To Do List";
 			sourceTree = "<group>";
@@ -130,6 +148,7 @@
 				60909CDE2723490700FF87E4 /* Frameworks */,
 				60909CDF2723490700FF87E4 /* Resources */,
 				5C00A1584DC4712D1BC457B0 /* [CP] Embed Pods Frameworks */,
+				6009CA5127319CB3004A3C7B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -233,6 +252,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6009CA532731B5BF004A3C7B /* Constants.swift in Sources */,
 				60909CE92723490700FF87E4 /* ToDoListViewController.swift in Sources */,
 				609FD6F6272F2D4700DFABF7 /* TableViewCell.swift in Sources */,
 				60909CE52723490700FF87E4 /* AppDelegate.swift in Sources */,
@@ -313,12 +333,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -368,7 +389,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -392,8 +413,10 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -421,8 +444,10 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

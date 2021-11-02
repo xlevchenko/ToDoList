@@ -10,52 +10,59 @@
         <!--To Do List-->
         <scene sceneID="VLS-Cs-Uid">
             <objects>
-                <tableViewController id="00O-Uu-RcU" customClass="ToDoListViewController" customModule="To_Do_List" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="00O-Uu-RcU" customClass="ToDoListViewController" customModule="To_Do_List" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="s2E-mb-y20">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ToDoIthemCell" id="12Z-g5-t9N" customClass="TableViewCell" customModule="To_Do_List">
-                                <rect key="frame" x="0.0" y="44.5" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="40.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="12Z-g5-t9N" id="Jz0-cZ-DRv">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="40.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="D6n-bf-e0M" customClass="M13Checkbox" customModule="To_Do_List" customModuleProvider="target">
-                                            <rect key="frame" x="15" y="2" width="40" height="40.5"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="40" id="Leo-uW-gYz"/>
-                                                <constraint firstAttribute="width" constant="40" id="Lz0-ow-Y8U"/>
-                                            </constraints>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="lineWidth">
-                                                    <integer key="value" value="0"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="color" keyPath="onTintColor">
-                                                    <color key="value" systemColor="labelColor"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="size" keyPath="minimumTouchSize">
-                                                    <size key="value" width="0.0" height="0.0"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="boolean" keyPath="on" value="YES"/>
-                                            </userDefinedRuntimeAttributes>
-                                        </view>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EeA-4y-g3S">
-                                            <rect key="frame" x="69" y="10" width="48" height="24"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="ynK-r5-4zI">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="40.5"/>
+                                            <subviews>
+                                                <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="D6n-bf-e0M" customClass="M13Checkbox">
+                                                    <rect key="frame" x="0.0" y="0.0" width="40" height="40.5"/>
+                                                    <color key="tintColor" red="0.21960784310000001" green="0.5568627451" blue="0.23529411759999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="0dQ-vH-7Db"/>
+                                                        <constraint firstAttribute="width" constant="40" id="kC5-VV-MQD"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="lineWidth">
+                                                            <integer key="value" value="0"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="onTintColor">
+                                                            <color key="value" systemColor="labelColor"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="size" keyPath="minimumTouchSize">
+                                                            <size key="value" width="0.0" height="0.0"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="on" value="YES"/>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="checkmarkLineWidth">
+                                                            <real key="value" value="2"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EeA-4y-g3S">
+                                                    <rect key="frame" x="41" y="0.0" width="373" height="40.5"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="D6n-bf-e0M" firstAttribute="leading" secondItem="Jz0-cZ-DRv" secondAttribute="leading" constant="15" id="FDS-2u-2Hm"/>
-                                        <constraint firstAttribute="bottom" secondItem="EeA-4y-g3S" secondAttribute="bottom" constant="10" id="GjJ-xd-GHl"/>
-                                        <constraint firstAttribute="bottom" secondItem="D6n-bf-e0M" secondAttribute="bottom" constant="1.5" id="TM7-T3-Z05"/>
-                                        <constraint firstItem="EeA-4y-g3S" firstAttribute="leading" secondItem="D6n-bf-e0M" secondAttribute="trailing" constant="14" id="b1r-Kp-iZK"/>
-                                        <constraint firstItem="EeA-4y-g3S" firstAttribute="top" secondItem="Jz0-cZ-DRv" secondAttribute="top" constant="10" id="p3B-iN-VtZ"/>
-                                        <constraint firstItem="D6n-bf-e0M" firstAttribute="top" secondItem="Jz0-cZ-DRv" secondAttribute="top" constant="2" id="pnu-vA-isV"/>
+                                        <constraint firstItem="ynK-r5-4zI" firstAttribute="leading" secondItem="Jz0-cZ-DRv" secondAttribute="leading" id="2Yt-oU-CWr"/>
+                                        <constraint firstAttribute="bottom" secondItem="ynK-r5-4zI" secondAttribute="bottom" id="GNY-HL-7z3"/>
+                                        <constraint firstAttribute="trailing" secondItem="ynK-r5-4zI" secondAttribute="trailing" id="SaP-1f-ukb"/>
+                                        <constraint firstItem="ynK-r5-4zI" firstAttribute="top" secondItem="Jz0-cZ-DRv" secondAttribute="top" id="njR-sr-T5X"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
