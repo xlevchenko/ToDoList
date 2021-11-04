@@ -7,5 +7,7 @@ target 'To Do List' do
 
 
 pod 'M13Checkbox'
+pod 'BEMCheckBox'
+pod 'AIFlatSwitch'
 
 end

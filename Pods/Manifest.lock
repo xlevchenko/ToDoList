@@ -1,16 +1,24 @@
 PODS:
+  - AIFlatSwitch (1.0.7)
+  - BEMCheckBox (1.4.1)
   - M13Checkbox (3.4.0)
 
 DEPENDENCIES:
+  - AIFlatSwitch
+  - BEMCheckBox
   - M13Checkbox
 
 SPEC REPOS:
   trunk:
+    - AIFlatSwitch
+    - BEMCheckBox
     - M13Checkbox
 
 SPEC CHECKSUMS:
+  AIFlatSwitch: fd56a5e6ab8769f0b52cef815c4f071e83050352
+  BEMCheckBox: 5ba6e37ade3d3657b36caecc35c8b75c6c2b1a4e
   M13Checkbox: 6f59404540ac98ba83a3d1afac335895a40c6a5d
 
-PODFILE CHECKSUM: 8ff6e389b58101b7dd192266e9bbc96fbe047764
+PODFILE CHECKSUM: bc0fbbe093a9982eef0b11efd7af738b3aceee68
 
 COCOAPODS: 1.11.2
