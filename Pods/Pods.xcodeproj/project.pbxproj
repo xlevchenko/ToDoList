@@ -96,7 +96,7 @@
 		382ABEF7BA2300E1DC859CDE0D9EFDD4 /* BEMPathManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BEMPathManager.h; path = Classes/BEMPathManager.h; sourceTree = "<group>"; };
 		38B2F8253DDEE216754068E54488906D /* M13CheckboxDisclosurePathGenerator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = M13CheckboxDisclosurePathGenerator.swift; path = Sources/Paths/M13CheckboxDisclosurePathGenerator.swift; sourceTree = "<group>"; };
 		3B44929BDF8B897AE2E2CA1E00E5FB86 /* BEMCheckBox-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "BEMCheckBox-Info.plist"; sourceTree = "<group>"; };
-		3F282D213AB9D1ECA1228C986CC9D2BA /* BEMCheckBox */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = BEMCheckBox; path = BEMCheckBox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F282D213AB9D1ECA1228C986CC9D2BA /* BEMCheckBox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BEMCheckBox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4103B1776968F5445907240C3E26C64E /* AIFlatSwitch-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AIFlatSwitch-umbrella.h"; sourceTree = "<group>"; };
 		4270657C77F294F0C0CE55A91EB3457C /* M13CheckboxBounceController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = M13CheckboxBounceController.swift; path = Sources/Managers/M13CheckboxBounceController.swift; sourceTree = "<group>"; };
 		495B8B0A112F981589FD1BFD5688BA5D /* AIFlatSwitch-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "AIFlatSwitch-Info.plist"; sourceTree = "<group>"; };
@@ -125,7 +125,7 @@
 		992D7ECD08C925BFA21A89B3AD979798 /* BEMCheckBoxGroup.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BEMCheckBoxGroup.h; path = Classes/BEMCheckBoxGroup.h; sourceTree = "<group>"; };
 		998F92347629C1F53AB5867CE3862BEE /* AIFlatSwitch-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AIFlatSwitch-prefix.pch"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9FAE61DED812910B4ECFA256134B07C2 /* AIFlatSwitch */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = AIFlatSwitch; path = AIFlatSwitch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9FAE61DED812910B4ECFA256134B07C2 /* AIFlatSwitch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AIFlatSwitch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A39903AD319AF3407DB567FCFE423BC2 /* M13CheckboxGestureRecognizer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = M13CheckboxGestureRecognizer.swift; path = Sources/M13CheckboxGestureRecognizer.swift; sourceTree = "<group>"; };
 		A8FBA8A522D2BB49C4B9FCC37B29681B /* Pods-To Do List-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-To Do List-Info.plist"; sourceTree = "<group>"; };
 		AA1AB04B3F07AF893BEB65124DD8DCD7 /* BEMCheckBoxGroup.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BEMCheckBoxGroup.m; path = Classes/BEMCheckBoxGroup.m; sourceTree = "<group>"; };
@@ -269,8 +269,8 @@
 		436355B942DB72D7313D38AF3CC46B82 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9FAE61DED812910B4ECFA256134B07C2 /* AIFlatSwitch */,
-				3F282D213AB9D1ECA1228C986CC9D2BA /* BEMCheckBox */,
+				9FAE61DED812910B4ECFA256134B07C2 /* AIFlatSwitch.framework */,
+				3F282D213AB9D1ECA1228C986CC9D2BA /* BEMCheckBox.framework */,
 				5CE79C5BF20743404E59BEFD080A364D /* M13Checkbox.framework */,
 				007CDB9B1E4E17D594EC7063A2F74980 /* Pods-To Do List */,
 			);
@@ -429,7 +429,7 @@
 			);
 			name = AIFlatSwitch;
 			productName = AIFlatSwitch;
-			productReference = 9FAE61DED812910B4ECFA256134B07C2 /* AIFlatSwitch */;
+			productReference = 9FAE61DED812910B4ECFA256134B07C2 /* AIFlatSwitch.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		95D2F44B923AC1166D8B0AED80BD2850 /* Pods-To Do List */ = {
@@ -468,7 +468,7 @@
 			);
 			name = BEMCheckBox;
 			productName = BEMCheckBox;
-			productReference = 3F282D213AB9D1ECA1228C986CC9D2BA /* BEMCheckBox */;
+			productReference = 3F282D213AB9D1ECA1228C986CC9D2BA /* BEMCheckBox.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -478,7 +478,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1240;
+				LastUpgradeCheck = 1300;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 13.0";
@@ -666,7 +666,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/AIFlatSwitch/AIFlatSwitch-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/AIFlatSwitch/AIFlatSwitch-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -700,7 +700,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/M13Checkbox/M13Checkbox-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/M13Checkbox/M13Checkbox-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -734,7 +734,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/M13Checkbox/M13Checkbox-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/M13Checkbox/M13Checkbox-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -769,7 +769,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/AIFlatSwitch/AIFlatSwitch-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/AIFlatSwitch/AIFlatSwitch-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -932,7 +932,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/BEMCheckBox/BEMCheckBox-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/BEMCheckBox/BEMCheckBox-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -966,7 +966,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/BEMCheckBox/BEMCheckBox-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/BEMCheckBox/BEMCheckBox-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

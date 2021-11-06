@@ -12,7 +12,7 @@ class ToDoListViewController: UITableViewController {
     
     @IBOutlet var toDoListTableView: UITableView!
     
-    var ithemArray = ["Olexsii Levchenko", "Sabina Babaeva", "Olga Levchenko"]
+    var ithemArray = [Item]()
     
     let defaults = UserDefaults.standard
     
@@ -24,9 +24,18 @@ class ToDoListViewController: UITableViewController {
         toDoListTableView.dataSource = self
         
         //Mark: - Get data from UserDefaults
-        if let items = defaults.array(forKey: "ToDoListArray") as? [String] {
-            ithemArray = items
-        }
+//        if let items = defaults.array(forKey: "ToDoListArray") as? [Item] {
+//            ithemArray = items
+//        }
+        
+        let newItem = Item()
+        newItem.title = "drink wather"
+        newItem.done = false
+        ithemArray.append(newItem)
+        let newItem2 = Item()
+        newItem2.title = "drink alcogol"
+        newItem2.done = false
+        ithemArray.append(newItem2)
     }
     
     
@@ -39,6 +48,11 @@ class ToDoListViewController: UITableViewController {
     // Mark: - Tells the delegate a row is selected
     override  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        ithemArray[indexPath.row].done = !ithemArray[indexPath.row].done
+        
+        tableView.reloadData()
+        tableView.deselectRow(at: indexPath, animated: false)
+        
     }
 
 
@@ -46,9 +60,16 @@ class ToDoListViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = toDoListTableView.dequeueReusableCell(withIdentifier: "ToDoIthemCell", for: indexPath) as! TableViewCell
         
-        let checkbox = M13Checkbox(frame: CGRect(x: 6, y: 6, width: 28.0, height: 28.0))
-        cell.taskLabel.text = ithemArray[indexPath.row]
-        cell.checkMark.addSubview(checkbox)
+        let item = ithemArray[indexPath.row]
+        cell.taskLabel.text = item.title
+        
+        
+        if item.done == true {
+            cell.checkMark.setCheckState(.checked, animated: true)
+        } else {
+            cell.checkMark.setCheckState(.unchecked, animated: true)
+        }
+        
         return cell
     }
     
@@ -60,11 +81,13 @@ class ToDoListViewController: UITableViewController {
         let action = UIAlertAction(title: "Add Item", style: .default) { (action) in
             
             //What will happen once the user clicks the Add Item button on our UIAlert."
-            self.ithemArray.append(textField.text!)
+            let newItem = Item()
+            newItem.title = textField.text!
+            
+            self.ithemArray.append(newItem)
             self.defaults.set(self.ithemArray, forKey: "ToDoListArray")
             self.tableView.reloadData()
         }
-        
         
         alert.addTextField { (alertTextField) in
             alertTextField.placeholder = "Create new item"

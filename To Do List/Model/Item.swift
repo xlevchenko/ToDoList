@@ -2,14 +2,14 @@
 //  File.swift
 //  To Do List
 //
-//  Created by Olexsii Levchenko on 11/3/21.
+//  Created by Olexsii Levchenko on 11/6/21.
 //
 
 import Foundation
+import M13Checkbox
+import AIFlatSwitch
 
-
-class ItemCell {
-    var checkmark: Bool = false
+class Item {
+    var done: Bool = false
     var title: String = ""
-    
 }
