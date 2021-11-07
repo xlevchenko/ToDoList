@@ -13,29 +13,33 @@ class ToDoListViewController: UITableViewController {
     @IBOutlet var toDoListTableView: UITableView!
     
     var ithemArray = [Item]()
+    let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Item.plist")
     
-    let defaults = UserDefaults.standard
+
+    
+    //let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         //Mark: - Registering a Table View Cell
         toDoListTableView.delegate = self
         toDoListTableView.dataSource = self
         
-        //Mark: - Get data from UserDefaults
+        let newItem = Item()
+        newItem.title = "drink wather"
+        //newItem.done = false
+        ithemArray.append(newItem)
+        let newItem2 = Item()
+        newItem2.title = "drink alcogol"
+        //newItem2.done = false
+        ithemArray.append(newItem2)
+        
+        // Mark: - Get data from UserDefaults
 //        if let items = defaults.array(forKey: "ToDoListArray") as? [Item] {
 //            ithemArray = items
 //        }
         
-        let newItem = Item()
-        newItem.title = "drink wather"
-        newItem.done = false
-        ithemArray.append(newItem)
-        let newItem2 = Item()
-        newItem2.title = "drink alcogol"
-        newItem2.done = false
-        ithemArray.append(newItem2)
     }
     
     
@@ -49,10 +53,9 @@ class ToDoListViewController: UITableViewController {
     override  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         ithemArray[indexPath.row].done = !ithemArray[indexPath.row].done
+        saveItem()
         
-        tableView.reloadData()
-        tableView.deselectRow(at: indexPath, animated: false)
-        
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 
 
@@ -63,13 +66,12 @@ class ToDoListViewController: UITableViewController {
         let item = ithemArray[indexPath.row]
         cell.taskLabel.text = item.title
         
-        
         if item.done == true {
             cell.checkMark.setCheckState(.checked, animated: true)
         } else {
             cell.checkMark.setCheckState(.unchecked, animated: true)
         }
-        
+        //saveItem()
         return cell
     }
     
@@ -83,10 +85,9 @@ class ToDoListViewController: UITableViewController {
             //What will happen once the user clicks the Add Item button on our UIAlert."
             let newItem = Item()
             newItem.title = textField.text!
-            
+        
             self.ithemArray.append(newItem)
-            self.defaults.set(self.ithemArray, forKey: "ToDoListArray")
-            self.tableView.reloadData()
+            self.saveItem()
         }
         
         alert.addTextField { (alertTextField) in
@@ -97,5 +98,21 @@ class ToDoListViewController: UITableViewController {
         
         present(alert, animated: true, completion: nil)
     }
+    
+    func saveItem() {
+        let encode = PropertyListEncoder()
+        
+        do {
+            let data = try encode.encode(ithemArray)
+            try data.write(to: dataFilePath!)
+        } catch {
+            print("Error encoding item array \(error)")
+        }
+        
+        self.tableView.reloadData()
+    }
+    
 }
 
+
+    

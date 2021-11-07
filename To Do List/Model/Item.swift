@@ -9,7 +9,7 @@ import Foundation
 import M13Checkbox
 import AIFlatSwitch
 
-class Item {
+class Item: Encodable {
     var done: Bool = false
     var title: String = ""
 }
