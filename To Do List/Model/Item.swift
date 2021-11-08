@@ -7,9 +7,8 @@
 
 import Foundation
 import M13Checkbox
-import AIFlatSwitch
 
-class Item: Encodable {
-    var done: Bool = false
+class Item: Codable {
     var title: String = ""
+    var done: Bool = false
 }

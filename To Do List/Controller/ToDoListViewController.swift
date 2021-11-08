@@ -26,20 +26,7 @@ class ToDoListViewController: UITableViewController {
         toDoListTableView.delegate = self
         toDoListTableView.dataSource = self
         
-        let newItem = Item()
-        newItem.title = "drink wather"
-        //newItem.done = false
-        ithemArray.append(newItem)
-        let newItem2 = Item()
-        newItem2.title = "drink alcogol"
-        //newItem2.done = false
-        ithemArray.append(newItem2)
-        
-        // Mark: - Get data from UserDefaults
-//        if let items = defaults.array(forKey: "ToDoListArray") as? [Item] {
-//            ithemArray = items
-//        }
-        
+        loadItem()
     }
     
     
@@ -53,9 +40,10 @@ class ToDoListViewController: UITableViewController {
     override  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         ithemArray[indexPath.row].done = !ithemArray[indexPath.row].done
+        
         saveItem()
         
-        tableView.deselectRow(at: indexPath, animated: true)
+        tableView.deselectRow(at: indexPath, animated: false)
     }
 
 
@@ -66,12 +54,8 @@ class ToDoListViewController: UITableViewController {
         let item = ithemArray[indexPath.row]
         cell.taskLabel.text = item.title
         
-        if item.done == true {
-            cell.checkMark.setCheckState(.checked, animated: true)
-        } else {
-            cell.checkMark.setCheckState(.unchecked, animated: true)
-        }
-        //saveItem()
+        cell.checkMark.checkState = item.done == true ? .checked : .unchecked
+        
         return cell
     }
     
@@ -108,10 +92,19 @@ class ToDoListViewController: UITableViewController {
         } catch {
             print("Error encoding item array \(error)")
         }
-        
         self.tableView.reloadData()
     }
     
+    func loadItem() {
+        if let data = try? Data(contentsOf: dataFilePath!) {
+            let decode = PropertyListDecoder()
+            do {
+                ithemArray = try decode.decode([Item].self, from: data)
+            } catch {
+                print("Error \(error)")
+            }
+        }
+    }
 }
 
 

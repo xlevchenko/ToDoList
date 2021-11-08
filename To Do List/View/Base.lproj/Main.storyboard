@@ -46,6 +46,7 @@
                                                     <real key="value" value="1"/>
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="animatesOnTouch" value="YES"/>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="enableMorphing" value="NO"/>
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="EeA-4y-g3S">
