@@ -7,6 +7,7 @@
 
 import UIKit
 import M13Checkbox
+import CoreData
 
 class ToDoListViewController: UITableViewController {
     
@@ -15,18 +16,21 @@ class ToDoListViewController: UITableViewController {
     var ithemArray = [Item]()
     let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Item.plist")
     
-
+    //Initialize CoreData (configure your code to use Core Data)
+    let context = (UIApplication.shared.delegate as! AppDelegate) .persistentContainer.viewContext
+    
+    
     
     //let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         //Mark: - Registering a Table View Cell
         toDoListTableView.delegate = self
         toDoListTableView.dataSource = self
         
-        loadItem()
+//        loadItem()
     }
     
     
@@ -45,8 +49,8 @@ class ToDoListViewController: UITableViewController {
         
         tableView.deselectRow(at: indexPath, animated: false)
     }
-
-
+    
+    
     // Mark: The method is responsible for what should be displayed in our cells.
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = toDoListTableView.dequeueReusableCell(withIdentifier: "ToDoIthemCell", for: indexPath) as! TableViewCell
@@ -59,7 +63,7 @@ class ToDoListViewController: UITableViewController {
         return cell
     }
     
-
+    
     @IBAction func addNewItems(_ sender: UIBarButtonItem) {
         
         var textField = UITextField()
@@ -67,9 +71,12 @@ class ToDoListViewController: UITableViewController {
         let action = UIAlertAction(title: "Add Item", style: .default) { (action) in
             
             //What will happen once the user clicks the Add Item button on our UIAlert."
-            let newItem = Item()
+            
+            
+            let newItem = Item(context: self.context)
+            
             newItem.title = textField.text!
-        
+            newItem.done = false
             self.ithemArray.append(newItem)
             self.saveItem()
         }
@@ -83,29 +90,27 @@ class ToDoListViewController: UITableViewController {
         present(alert, animated: true, completion: nil)
     }
     
+    //Save our new items in database(using Core Data)
     func saveItem() {
-        let encode = PropertyListEncoder()
-        
         do {
-            let data = try encode.encode(ithemArray)
-            try data.write(to: dataFilePath!)
+            try context.save()
         } catch {
-            print("Error encoding item array \(error)")
+            print("Error saving context \(error)")
         }
         self.tableView.reloadData()
     }
     
-    func loadItem() {
-        if let data = try? Data(contentsOf: dataFilePath!) {
-            let decode = PropertyListDecoder()
-            do {
-                ithemArray = try decode.decode([Item].self, from: data)
-            } catch {
-                print("Error \(error)")
-            }
-        }
-    }
+//    func loadItem() {
+//        if let data = try? Data(contentsOf: dataFilePath!) {
+//            let decode = PropertyListDecoder()
+//            do {
+//                ithemArray = try decode.decode([Item].self, from: data)
+//            } catch {
+//                print("Error \(error)")
+//            }
+//        }
+//    }
 }
 
 
-    
+
