@@ -14,7 +14,6 @@ class ToDoListViewController: UITableViewController {
     @IBOutlet var toDoListTableView: UITableView!
     
     var ithemArray = [Item]()
-    let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Item.plist")
     
     //Initialize CoreData (configure your code to use Core Data)
     let context = (UIApplication.shared.delegate as! AppDelegate) .persistentContainer.viewContext
@@ -26,11 +25,12 @@ class ToDoListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
         //Mark: - Registering a Table View Cell
         toDoListTableView.delegate = self
         toDoListTableView.dataSource = self
         
-//        loadItem()
+        loadItem()
     }
     
     
@@ -43,11 +43,15 @@ class ToDoListViewController: UITableViewController {
     // Mark: - Tells the delegate a row is selected
     override  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        
+//        context.delete(ithemArray[indexPath.row])
+//        ithemArray.remove(at: indexPath.row)
+        
         ithemArray[indexPath.row].done = !ithemArray[indexPath.row].done
         
         saveItem()
         
-        tableView.deselectRow(at: indexPath, animated: false)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     
@@ -100,16 +104,15 @@ class ToDoListViewController: UITableViewController {
         self.tableView.reloadData()
     }
     
-//    func loadItem() {
-//        if let data = try? Data(contentsOf: dataFilePath!) {
-//            let decode = PropertyListDecoder()
-//            do {
-//                ithemArray = try decode.decode([Item].self, from: data)
-//            } catch {
-//                print("Error \(error)")
-//            }
-//        }
-//    }
+    func loadItem() {
+        let request: NSFetchRequest<Item> = Item.fetchRequest()
+        do {
+            ithemArray = try context.fetch(request)
+        } catch {
+           print("Error fetching data from context \(error)")
+        }
+    }
+    
 }
 
 
