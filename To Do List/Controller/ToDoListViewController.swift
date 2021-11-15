@@ -34,6 +34,7 @@ class ToDoListViewController: UITableViewController {
     
     
     //MARK: - TableView DataSource Methods
+    
     //Number Of Rows In Section
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return ithemArray.count
@@ -54,6 +55,7 @@ class ToDoListViewController: UITableViewController {
     
     
     //MARK: - TableView Delegate Method
+    
     //Tells the delegate a row is selected
     override  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     
@@ -67,6 +69,7 @@ class ToDoListViewController: UITableViewController {
     
    
     //MARK: - Add New Items
+    
     @IBAction func addNewItems(_ sender: UIBarButtonItem) {
         
         var textField = UITextField()
@@ -129,6 +132,9 @@ extension ToDoListViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchBar.text?.count == 0 {
             loadItem()
+            DispatchQueue.main.async {
+                searchBar.resignFirstResponder()
+            }
         }
     }
 }
