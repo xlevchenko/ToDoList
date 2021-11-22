@@ -12,6 +12,7 @@
 		6009CA532731B5BF004A3C7B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6009CA522731B5BF004A3C7B /* Constants.swift */; };
 		604BF609273C417800107B8C /* Data Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 604BF607273C417800107B8C /* Data Model.xcdatamodeld */; };
 		605507F72734904A009185F0 /* Supporting Files in Resources */ = {isa = PBXBuildFile; fileRef = 605507F62734904A009185F0 /* Supporting Files */; };
+		607DEF69274BD79A00932CD5 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607DEF68274BD79A00932CD5 /* CategoryTableViewCell.swift */; };
 		60909CE52723490700FF87E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60909CE42723490700FF87E4 /* AppDelegate.swift */; };
 		60909CE72723490700FF87E4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60909CE62723490700FF87E4 /* SceneDelegate.swift */; };
 		60909CE92723490700FF87E4 /* ToDoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60909CE82723490700FF87E4 /* ToDoListViewController.swift */; };
@@ -39,6 +40,7 @@
 		6009CA522731B5BF004A3C7B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		604BF608273C417800107B8C /* Data Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Data Model.xcdatamodel"; sourceTree = "<group>"; };
 		605507F62734904A009185F0 /* Supporting Files */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Supporting Files"; sourceTree = "<group>"; };
+		607DEF68274BD79A00932CD5 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 		60909CE12723490700FF87E4 /* To Do List.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "To Do List.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		60909CE42723490700FF87E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		60909CE62723490700FF87E4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 		6045AB2A2729D8E20025E133 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				607DEF68274BD79A00932CD5 /* CategoryTableViewCell.swift */,
 				609FD6F5272F2D4700DFABF7 /* TableViewCell.swift */,
 				60909CEA2723490700FF87E4 /* Main.storyboard */,
 			);
@@ -170,7 +173,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1300;
-				LastUpgradeCheck = 1300;
+				LastUpgradeCheck = 1310;
 				TargetAttributes = {
 					60909CE02723490700FF87E4 = {
 						CreatedOnToolsVersion = 13.0;
@@ -261,6 +264,7 @@
 				60CD77662742ECA1008AF67D /* CategoryViewController.swift in Sources */,
 				60909CE52723490700FF87E4 /* AppDelegate.swift in Sources */,
 				60909CE72723490700FF87E4 /* SceneDelegate.swift in Sources */,
+				607DEF69274BD79A00932CD5 /* CategoryTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,13 +333,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -385,7 +388,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
