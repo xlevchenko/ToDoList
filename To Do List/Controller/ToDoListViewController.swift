@@ -13,6 +13,11 @@ class ToDoListViewController: UITableViewController {
     @IBOutlet var toDoListTableView: UITableView!
     
     var ithemArray = [Item]()
+    var selectCategory: Category? {
+        didSet {
+            loadItem()
+        }
+    }
     
     //Initialize CoreData (configure your code to use Core Data)
     let context = (UIApplication.shared.delegate as! AppDelegate) .persistentContainer.viewContext
@@ -28,8 +33,6 @@ class ToDoListViewController: UITableViewController {
         //Mark: - Registering a Table View Cell
         toDoListTableView.delegate = self
         toDoListTableView.dataSource = self
-        
-        loadItem()
     }
     
     
@@ -80,6 +83,7 @@ class ToDoListViewController: UITableViewController {
             let newItem = Item(context: self.context)
             newItem.title = textField.text!
             newItem.done = false
+            newItem.parentCategory = self.selectCategory
             self.ithemArray.append(newItem)
             self.saveItem()
         }
@@ -104,7 +108,19 @@ class ToDoListViewController: UITableViewController {
         self.tableView.reloadData()
     }
     
-    func loadItem(with request: NSFetchRequest<Item> = Item.fetchRequest()) {
+    
+    func loadItem(with request: NSFetchRequest<Item> = Item.fetchRequest(), predicate: NSPredicate? = nil) {
+        
+        //Created our predicate which responsible for loading data that belongs to the selected category.
+        let categoryPredicate = NSPredicate(format: "parentCategory.name MATCHES %@", selectCategory!.name!)
+        
+        //using optional binding to make sure not nil and combining our predictors
+        if let aditionPredicate = predicate {
+            request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [categoryPredicate, aditionPredicate])
+        } else {
+            request.predicate = categoryPredicate
+        }
+        
         do {
             ithemArray = try context.fetch(request)
         } catch {
@@ -123,9 +139,9 @@ extension ToDoListViewController: UISearchBarDelegate {
         let request: NSFetchRequest<Item> = Item.fetchRequest()
         
         //Created our predicate which specifies how we want to query our database
-        request.predicate = NSPredicate(format: "title CONTAINS[cd] %@", searchBar.text!)
+        let searchPredicate = NSPredicate(format: "title CONTAINS[cd] %@", searchBar.text!)
         request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
-        loadItem(with: request)
+        loadItem(with: request, predicate: searchPredicate)
     }
     
     //If search bar did text change to zero symbol, back to original items state.
