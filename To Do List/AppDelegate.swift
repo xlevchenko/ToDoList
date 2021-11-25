@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreData
+import RealmSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,6 +15,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        print(Realm.Configuration.defaultConfiguration.fileURL)
+        
+        let data = Data()
+        data.name = "Olexsii"
+        data.age = 26
+        
+        // Open the local-only default realm
+        do {
+        let localRealm = try! Realm()
+           try localRealm.write {
+                localRealm.add(data)
+            }
+        } catch {
+            print("Error instalising new realm\(error)")
+        }
+        
         return true
     }
 

@@ -1,16 +1,26 @@
 PODS:
   - M13Checkbox (3.4.0)
+  - Realm (10.20.0):
+    - Realm/Headers (= 10.20.0)
+  - Realm/Headers (10.20.0)
+  - RealmSwift (10.20.0):
+    - Realm (= 10.20.0)
 
 DEPENDENCIES:
   - M13Checkbox
+  - RealmSwift (~> 10)
 
 SPEC REPOS:
   trunk:
     - M13Checkbox
+    - Realm
+    - RealmSwift
 
 SPEC CHECKSUMS:
   M13Checkbox: 6f59404540ac98ba83a3d1afac335895a40c6a5d
+  Realm: ae32bdc1da7d19c7617e0400201a77acd4a211b9
+  RealmSwift: c95eec6a712924870b2e36c4c081d63ec07e5414
 
-PODFILE CHECKSUM: 8ff6e389b58101b7dd192266e9bbc96fbe047764
+PODFILE CHECKSUM: 9558d6838e5aa19fb4ef0f3f4b9c0b7719f8f7ad
 
 COCOAPODS: 1.11.2

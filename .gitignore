@@ -3,6 +3,8 @@
 # Xcode
 #
 
+*.zip
+
 #Pod
 echo "Pods/" > .gitignore
 

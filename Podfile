@@ -7,5 +7,6 @@ target 'To Do List' do
 
 
 pod 'M13Checkbox'
+pod 'RealmSwift', '~>10'
 
 end
