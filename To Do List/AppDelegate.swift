@@ -18,16 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         print(Realm.Configuration.defaultConfiguration.fileURL)
         
-        // Open the local-only default realm
-        do {
-        let localRealm = try! Realm()
-           try localRealm.write {
-                localRealm.add(data)
-            }
-        } catch {
-            print("Error instalising new realm\(error)")
-        }
-        
         return true
     }
 

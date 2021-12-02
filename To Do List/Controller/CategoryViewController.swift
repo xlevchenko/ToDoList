@@ -14,10 +14,7 @@ class CategoryViewController: UITableViewController {
     
     @IBOutlet var categoryTableView: UITableView!
     
-    var itemCategory = [Category]()
-    
-    //Initialize CoreData (configure your code to use Core Data)
-    let context = (UIApplication.shared.delegate as! AppDelegate) .persistentContainer.viewContext
+    var itemCategory: Results<Category>?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +31,8 @@ class CategoryViewController: UITableViewController {
     
     //Number Of Rows In Section
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return itemCategory.count
+        
+        return itemCategory?.count ?? 1
     }
     
     
@@ -42,7 +40,7 @@ class CategoryViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = categoryTableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath) as! CategoryTableViewCell
         
-        cell.categoryLabel.text = itemCategory[indexPath.row].name
+        cell.categoryLabel.text = itemCategory?[indexPath.row].name ?? "No Categories Added yet"
         
         return cell
     }
@@ -58,7 +56,6 @@ class CategoryViewController: UITableViewController {
             let newCategory = Category()
             newCategory.name = textField.text!
             
-            self.itemCategory.append(newCategory)
             self.save(category: newCategory)
         }
         
@@ -84,12 +81,13 @@ class CategoryViewController: UITableViewController {
         self.tableView.reloadData()
     }
     
-    func loadCategory(with request: NSFetchRequest<Category> = Category.fetchRequest()) {
-        do {
-            itemCategory = try context.fetch(request)
-        } catch {
-            print("Error fetching data from context \(error)")
-        }
+    func loadCategory() {
+        itemCategory = realm.objects(Category.self)
+//        do {
+//            itemCategory = try context.fetch(request)
+//        } catch {
+//            print("Error fetching data from context \(error)")
+//        }
         tableView.reloadData()
     }
 
@@ -107,7 +105,7 @@ class CategoryViewController: UITableViewController {
         let destinationVC = segue.destination as! ToDoListViewController
         
         if let indexPath = tableView.indexPathForSelectedRow {
-            destinationVC.selectCategory = itemCategory[indexPath.row]
+            destinationVC.selectCategory = itemCategory?[indexPath.row]
         }
     }
 }
