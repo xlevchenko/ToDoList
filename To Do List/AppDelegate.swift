@@ -18,10 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         print(Realm.Configuration.defaultConfiguration.fileURL)
         
-        let data = Data()
-        data.name = "Olexsii"
-        data.age = 26
-        
         // Open the local-only default realm
         do {
         let localRealm = try! Realm()
