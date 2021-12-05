@@ -68,7 +68,6 @@ class CategoryViewController: UITableViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    
     //MARK: - Save and load data methods
     func save(category: Category) {
         do {
@@ -91,6 +90,8 @@ class CategoryViewController: UITableViewController {
         tableView.reloadData()
     }
 
+    
+
 
 
     //MARK: - TableView Delegate Method
@@ -109,3 +110,4 @@ class CategoryViewController: UITableViewController {
         }
     }
 }
+

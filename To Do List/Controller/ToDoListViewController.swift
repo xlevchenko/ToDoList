@@ -75,37 +75,33 @@ class ToDoListViewController: UITableViewController {
         var textField = UITextField()
         let alert = UIAlertController(title: "Add New Item", message: "", preferredStyle: .alert)
         let action = UIAlertAction(title: "Add Item", style: .default) { (action) in
-
+            
             //What will happen once the user clicks the Add Item button on our UIAlert."
-            let newItem = Item()
-            newItem.title = textField.text!
-            newItem.done = false
-            newItem.parentCategory //= self.selectCategory
-            self.save(item: newItem)
+            if let currentCategory = self.selectCategory {
+                do {
+                    try self.realm.write {
+                        let newItem = Item()
+                        newItem.title = textField.text!
+                        currentCategory.items.append(newItem)
+                    }
+                } catch {
+                    print("Error saving context \(error)")
+                }
+                self.tableView.reloadData()
+            }
         }
-
+        
         alert.addTextField { (alertTextField) in
             alertTextField.placeholder = "Create new item"
             textField = alertTextField
         }
         alert.addAction(action)
-
+        
         present(alert, animated: true, completion: nil)
     }
-   
+    
     
     //MARK: - Save and load data methods
-    func save(item: Item) {
-        do {
-            try realm.write {
-                realm.add(item)
-            }
-        } catch {
-            print("Error saving context \(error)")
-        }
-        self.tableView.reloadData()
-    }
-    
     
     func loadItem() {
         
