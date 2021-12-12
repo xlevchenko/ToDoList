@@ -82,11 +82,6 @@ class CategoryViewController: UITableViewController {
     
     func loadCategory() {
         itemCategory = realm.objects(Category.self)
-//        do {
-//            itemCategory = try context.fetch(request)
-//        } catch {
-//            print("Error fetching data from context \(error)")
-//        }
         tableView.reloadData()
     }
 

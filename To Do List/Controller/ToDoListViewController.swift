@@ -9,6 +9,7 @@ import UIKit
 import RealmSwift
 
 class ToDoListViewController: UITableViewController {
+    
     let realm = try! Realm()
     
     @IBOutlet var toDoListTableView: UITableView!
@@ -59,12 +60,17 @@ class ToDoListViewController: UITableViewController {
     //Tells the delegate a row is selected
     override  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     
-//        context.delete(ithemArray[indexPath.row])
-//        ithemArray.remove(at: indexPath.row)
+        if let item = ithemArray?[indexPath.row] {
+            do {
+                try realm.write{
+                    item.done = !item.done
+                }
+            } catch {
+                print("Error saving \(error)")
+            }
+        }
         
-        //ithemArray?[indexPath.row].done = !ithemArray?[indexPath.row].done
-        //save(item: <#T##Item#>)
-        tableView.deselectRow(at: indexPath, animated: true)
+        tableView.reloadData()
     }
     
    
@@ -85,7 +91,7 @@ class ToDoListViewController: UITableViewController {
                         currentCategory.items.append(newItem)
                     }
                 } catch {
-                    print("Error saving context \(error)")
+                    print("Error saving \(error)")
                 }
                 self.tableView.reloadData()
             }
