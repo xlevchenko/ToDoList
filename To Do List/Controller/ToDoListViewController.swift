@@ -120,15 +120,14 @@ class ToDoListViewController: UITableViewController {
 //MARK: - Search Bar Methods
 
 extension ToDoListViewController: UISearchBarDelegate {
-
+    
     //Method executes a query to search for data by criteria and sorts them
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
-        ithemArray = ithemArray?.filter("title CONTAINS[cd] %@", searchBar.text!).sorted(byKeyPath: "personID", ascending: true)
-        
+        ithemArray = ithemArray?.filter("title CONTAINS[cd] %@", searchBar.text!)//.sorted(by: "personID", ascending: true)
         tableView.reloadData()
     }
-
+    
     //If search bar did text change to zero symbol, back to original items state.
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchBar.text?.count == 0 {
