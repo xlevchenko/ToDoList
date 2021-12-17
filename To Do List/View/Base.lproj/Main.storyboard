@@ -45,28 +45,12 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CategoryCell" id="slN-Ly-eQl" customClass="CategoryTableViewCell" customModule="To_Do_List" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44.5" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="slN-Ly-eQl" id="OlD-7w-22V">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N0U-ZO-QCt">
-                                            <rect key="frame" x="20" y="11" width="42" height="21.5"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="bottomMargin" secondItem="N0U-ZO-QCt" secondAttribute="bottom" constant="0.5" id="VET-sx-MoW"/>
-                                        <constraint firstItem="N0U-ZO-QCt" firstAttribute="top" secondItem="OlD-7w-22V" secondAttribute="topMargin" id="aVZ-Mt-UVe"/>
-                                        <constraint firstItem="N0U-ZO-QCt" firstAttribute="leading" secondItem="OlD-7w-22V" secondAttribute="leadingMargin" id="pV6-W1-m6C"/>
-                                    </constraints>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="categoryLabel" destination="N0U-ZO-QCt" id="fsW-FH-aXX"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

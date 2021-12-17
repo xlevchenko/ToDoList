@@ -7,6 +7,7 @@
 
 import UIKit
 import RealmSwift
+import SwipeCellKit
 
 class CategoryViewController: UITableViewController {
     
@@ -38,9 +39,9 @@ class CategoryViewController: UITableViewController {
     
     //The method is responsible for what should be displayed in our cells.
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = categoryTableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath) as! CategoryTableViewCell
+        let cell = categoryTableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath) //as! CategoryTableViewCell
         
-        cell.categoryLabel.text = itemCategory?[indexPath.row].name ?? "No Categories Added yet"
+        cell.textLabel?.text = itemCategory?[indexPath.row].name ?? "No Categories Added yet"
         
         return cell
     }
