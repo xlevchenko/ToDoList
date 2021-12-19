@@ -20,6 +20,7 @@
 		60A8775E2758F7F00065E18B /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A8775D2758F7F00065E18B /* Item.swift */; };
 		60A877602758F81A0065E18B /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A8775F2758F81A0065E18B /* Category.swift */; };
 		60CD77662742ECA1008AF67D /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CD77652742ECA1008AF67D /* CategoryViewController.swift */; };
+		60F86B83276F545C003D312C /* SwipeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F86B82276F545C003D312C /* SwipeTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -51,6 +52,7 @@
 		60A8775D2758F7F00065E18B /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		60A8775F2758F81A0065E18B /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		60CD77652742ECA1008AF67D /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		60F86B82276F545C003D312C /* SwipeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeTableViewController.swift; sourceTree = "<group>"; };
 		8D306439691CC07FFDAB1C99 /* Pods-To Do List.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-To Do List.debug.xcconfig"; path = "Target Support Files/Pods-To Do List/Pods-To Do List.debug.xcconfig"; sourceTree = "<group>"; };
 		ACA249885F1B31621535BD0A /* Pods_To_Do_List.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_To_Do_List.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -81,6 +83,7 @@
 			children = (
 				60CD77652742ECA1008AF67D /* CategoryViewController.swift */,
 				60909CE82723490700FF87E4 /* ToDoListViewController.swift */,
+				60F86B82276F545C003D312C /* SwipeTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 				60A877602758F81A0065E18B /* Category.swift in Sources */,
 				60A8775E2758F7F00065E18B /* Item.swift in Sources */,
 				60909CE92723490700FF87E4 /* ToDoListViewController.swift in Sources */,
+				60F86B83276F545C003D312C /* SwipeTableViewController.swift in Sources */,
 				609FD6F6272F2D4700DFABF7 /* TableViewCell.swift in Sources */,
 				60CD77662742ECA1008AF67D /* CategoryViewController.swift in Sources */,
 				60909CE52723490700FF87E4 /* AppDelegate.swift in Sources */,
