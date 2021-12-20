@@ -90,10 +90,10 @@
                             </connections>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="50" id="12Z-g5-t9N" customClass="TableViewCell" customModule="To_Do_List">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="50" id="12Z-g5-t9N" customClass="SwipeTableViewCell" customModule="SwipeCellKit">
                                 <rect key="frame" x="0.0" y="88.5" width="414" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="12Z-g5-t9N" id="Jz0-cZ-DRv">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="12Z-g5-t9N" id="Jz0-cZ-DRv" customClass="ListCell">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
@@ -139,8 +139,8 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="checkMark" destination="D6n-bf-e0M" id="KjR-yb-nFr"/>
-                                    <outlet property="taskLabel" destination="EeA-4y-g3S" id="lmS-fb-HIl"/>
+                                    <outlet property="checkMark" destination="D6n-bf-e0M" id="ce4-Kc-s5G"/>
+                                    <outlet property="taskLabel" destination="EeA-4y-g3S" id="fPI-52-sWj"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -156,9 +156,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <outlet property="toDoListTableView" destination="s2E-mb-y20" id="KE8-ia-flC"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hRd-fB-FaF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

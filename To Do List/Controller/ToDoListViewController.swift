@@ -7,14 +7,18 @@
 
 import UIKit
 import RealmSwift
+import M13Checkbox
 
-class ToDoListViewController: UITableViewController {
+class ToDoListViewController: SwipeTableViewController {
+    
+    class ListCell: UITableViewCell {
+        @IBOutlet weak var checkMark: M13Checkbox!
+        @IBOutlet weak var taskLabel: UILabel!
+    }
     
     let realm = try! Realm()
-    
-    @IBOutlet var toDoListTableView: UITableView!
-    
-    var ithemArray: Results<Item>?
+        
+    var itemList: Results<Item>?
     
     var selectCategory: Category? {
         didSet {
@@ -27,8 +31,8 @@ class ToDoListViewController: UITableViewController {
         
         print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
         //Mark: - Registering a Table View Cell
-        toDoListTableView.delegate = self
-        toDoListTableView.dataSource = self
+        tableView.delegate = self
+        tableView.dataSource = self
     }
     
     
@@ -36,18 +40,19 @@ class ToDoListViewController: UITableViewController {
     
     //Number Of Rows In Section
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ithemArray?.count ?? 0
+        return itemList?.count ?? 0
     }
     
     
     //The method is responsible for what should be displayed in our cells.
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = toDoListTableView.dequeueReusableCell(withIdentifier: "ToDoIthemCell", for: indexPath) as! TableViewCell
         
-        if let item = ithemArray?[indexPath.row] {
-        cell.taskLabel.text = item.title
+        let cell = super.tableView(tableView, cellForRowAt: indexPath) as! ListCell
         
-        cell.checkMark.checkState = item.done == true ? .checked : .unchecked
+        if let item = itemList?[indexPath.row] {
+            cell.taskLabel?.text = item.title
+            
+            cell.checkMark.checkState = item.done == true ? .checked : .unchecked
         } else {
             cell.taskLabel.text = "No Item Added"
         }
@@ -60,7 +65,7 @@ class ToDoListViewController: UITableViewController {
     //Tells the delegate a row is selected
     override  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     
-        if let item = ithemArray?[indexPath.row] {
+        if let item = itemList?[indexPath.row] {
             do {
                 try realm.write{
                     item.done = !item.done
@@ -112,11 +117,24 @@ class ToDoListViewController: UITableViewController {
     
     func loadItem() {
         
-        ithemArray = selectCategory?.items.sorted(byKeyPath: "title", ascending: true)
+        itemList = selectCategory?.items.sorted(byKeyPath: "title", ascending: true)
         tableView.reloadData()
     }
-}
 
+//MARK: - Delete Data from Swipe
+    override func updateModel(at indexPath: IndexPath) {
+        if let itemForDelition = itemList?[indexPath.row]
+        {
+            do {
+                try realm.write {
+                    realm.delete(itemForDelition)
+                }
+            } catch {
+                print("eror deleting object \(error)")
+            }
+        }
+    }
+}
 //MARK: - Search Bar Methods
 
 extension ToDoListViewController: UISearchBarDelegate {
@@ -124,7 +142,7 @@ extension ToDoListViewController: UISearchBarDelegate {
     //Method executes a query to search for data by criteria and sorts them
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
-        ithemArray = ithemArray?.filter("title CONTAINS[cd] %@", searchBar.text!)//.sorted(by: "personID", ascending: true)
+        itemList = itemList?.filter("title CONTAINS[cd] %@", searchBar.text!)//.sorted(by: "personID", ascending: true)
         tableView.reloadData()
     }
     

@@ -8,6 +8,7 @@
 import UIKit
 import RealmSwift
 import SwipeCellKit
+import M13Checkbox
 
 class SwipeTableViewController: UITableViewController, SwipeTableViewCellDelegate {
     
