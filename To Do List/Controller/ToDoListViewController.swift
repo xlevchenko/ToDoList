@@ -8,13 +8,14 @@
 import UIKit
 import RealmSwift
 import M13Checkbox
+import SwipeCellKit
 
-class ToDoListViewController: SwipeTableViewController {
+class ToDoListViewController: UITableViewController, SwipeTableViewCellDelegate {
     
-    class ListCell: UITableViewCell {
-        @IBOutlet weak var checkMark: M13Checkbox!
-        @IBOutlet weak var taskLabel: UILabel!
-    }
+//    class ListCell: UITableViewCell {
+//        @IBOutlet weak var checkMark: M13Checkbox!
+//        @IBOutlet weak var taskLabel: UILabel!
+//    }
     
     let realm = try! Realm()
         
@@ -29,10 +30,14 @@ class ToDoListViewController: SwipeTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.register(UINib(nibName: "ItemCell", bundle: nil), forCellReuseIdentifier: "ItemCell")
+        
         print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
         //Mark: - Registering a Table View Cell
         tableView.delegate = self
         tableView.dataSource = self
+        
+        tableView.rowHeight = 65.0
     }
     
     
@@ -47,18 +52,34 @@ class ToDoListViewController: SwipeTableViewController {
     //The method is responsible for what should be displayed in our cells.
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = super.tableView(tableView, cellForRowAt: indexPath) as! ListCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as! ItemCell
+        
+        //To make the cell Swipeable via SwipeCellKit
+        cell.delegate = self
         
         if let item = itemList?[indexPath.row] {
-            cell.taskLabel?.text = item.title
-            
+            cell.itemLabel?.text = item.title
             cell.checkMark.checkState = item.done == true ? .checked : .unchecked
         } else {
-            cell.taskLabel.text = "No Item Added"
+            cell.itemLabel.text = "No Item Added"
         }
         return cell
     }
+   
     
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+        guard orientation == .right else { return nil }
+
+        let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
+            // handle action by updating model with deletion
+            self.updateModel(at: indexPath)
+        }
+
+        // customize the action appearance
+        deleteAction.image = UIImage(named: "Trash")
+
+        return [deleteAction]
+    }
     
     //MARK: - TableView Delegate Method
     
@@ -122,7 +143,7 @@ class ToDoListViewController: SwipeTableViewController {
     }
 
 //MARK: - Delete Data from Swipe
-    override func updateModel(at indexPath: IndexPath) {
+     func updateModel(at indexPath: IndexPath) {
         if let itemForDelition = itemList?[indexPath.row]
         {
             do {
