@@ -24,10 +24,10 @@ class CategoryViewController: SwipeTableViewController {
         loadCategory()
         
         tableView.rowHeight = 65.0
-        
     }
 
-    //MARK: - TableView DataSource Methods
+    
+//MARK: - TableView DataSource Methods
     
     //Number Of Rows In Section
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -68,7 +68,8 @@ class CategoryViewController: SwipeTableViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    //MARK: - Save and load data methods
+    
+//MARK: - Save and load data methods
     func save(category: Category) {
         do {
             try realm.write {
@@ -85,7 +86,7 @@ class CategoryViewController: SwipeTableViewController {
         tableView.reloadData()
     }
 
-    //MARK: - Delete Data from Swipe
+//MARK: - Delete Data from Swipe
     override func updateModel(at indexPath: IndexPath) {
         if let categoryForDelition = itemCategory?[indexPath.row]
         {
@@ -99,7 +100,7 @@ class CategoryViewController: SwipeTableViewController {
         }
     }
 
-    //MARK: - TableView Delegate Method
+//MARK: - TableView Delegate Method
     
     //Tells the delegate a row is selected
     override  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

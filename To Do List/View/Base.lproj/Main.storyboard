@@ -89,57 +89,6 @@
                                 <outlet property="delegate" destination="00O-Uu-RcU" id="PFj-Aq-5sA"/>
                             </connections>
                         </searchBar>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="50" id="12Z-g5-t9N" customClass="SwipeTableViewCell" customModule="SwipeCellKit">
-                                <rect key="frame" x="0.0" y="88.5" width="414" height="50"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="12Z-g5-t9N" id="Jz0-cZ-DRv" customClass="SwipeTableViewCell" customModule="To_Do_List" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D6n-bf-e0M" customClass="M13Checkbox" customModule="M13Checkbox">
-                                            <rect key="frame" x="12" y="4" width="35" height="42"/>
-                                            <color key="tintColor" red="0.21960784310000001" green="0.5568627451" blue="0.23529411759999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            <rect key="contentStretch" x="1" y="0.0" width="1" height="1"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="35" id="EpK-yy-ka9"/>
-                                                <constraint firstAttribute="width" constant="35" id="yXb-Ap-2zF"/>
-                                            </constraints>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="lineWidth">
-                                                    <real key="value" value="0.0"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="color" keyPath="onTintColor">
-                                                    <color key="value" systemColor="labelColor"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="size" keyPath="minimumTouchSize">
-                                                    <size key="value" width="0.0" height="0.0"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="boolean" keyPath="on" value="YES"/>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="checkmarkLineWidth">
-                                                    <real key="value" value="1"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="boolean" keyPath="animatesOnTouch" value="YES"/>
-                                                <userDefinedRuntimeAttribute type="boolean" keyPath="enableMorphing" value="NO"/>
-                                            </userDefinedRuntimeAttributes>
-                                        </view>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="EeA-4y-g3S">
-                                            <rect key="frame" x="59" y="11" width="335" height="19"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="D6n-bf-e0M" firstAttribute="leading" secondItem="Jz0-cZ-DRv" secondAttribute="leading" constant="12" id="0By-v3-cDA"/>
-                                        <constraint firstItem="D6n-bf-e0M" firstAttribute="top" secondItem="Jz0-cZ-DRv" secondAttribute="top" constant="4" id="LkP-ls-F5L"/>
-                                        <constraint firstItem="EeA-4y-g3S" firstAttribute="leading" secondItem="D6n-bf-e0M" secondAttribute="trailing" constant="12" id="Uwj-fB-8er"/>
-                                        <constraint firstAttribute="bottom" secondItem="D6n-bf-e0M" secondAttribute="bottom" constant="4" id="mOS-Kk-PX9"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="00O-Uu-RcU" id="XZm-wc-l8M"/>
                             <outlet property="delegate" destination="00O-Uu-RcU" id="F6I-06-8lE"/>

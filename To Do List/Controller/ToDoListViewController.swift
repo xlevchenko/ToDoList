@@ -10,12 +10,7 @@ import RealmSwift
 import M13Checkbox
 import SwipeCellKit
 
-class ToDoListViewController: UITableViewController, SwipeTableViewCellDelegate {
-    
-//    class ListCell: UITableViewCell {
-//        @IBOutlet weak var checkMark: M13Checkbox!
-//        @IBOutlet weak var taskLabel: UILabel!
-//    }
+class ToDoListViewController: UITableViewController {
     
     let realm = try! Realm()
         
@@ -33,11 +28,11 @@ class ToDoListViewController: UITableViewController, SwipeTableViewCellDelegate 
         tableView.register(UINib(nibName: "ItemCell", bundle: nil), forCellReuseIdentifier: "ItemCell")
         
         print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
+        
         //Mark: - Registering a Table View Cell
         tableView.delegate = self
         tableView.dataSource = self
         
-        tableView.rowHeight = 65.0
     }
     
     
@@ -67,21 +62,7 @@ class ToDoListViewController: UITableViewController, SwipeTableViewCellDelegate 
     }
    
     
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
-        guard orientation == .right else { return nil }
-
-        let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
-            // handle action by updating model with deletion
-            self.updateModel(at: indexPath)
-        }
-
-        // customize the action appearance
-        deleteAction.image = UIImage(named: "Trash")
-
-        return [deleteAction]
-    }
-    
-    //MARK: - TableView Delegate Method
+//MARK: - TableView Delegate Method
     
     //Tells the delegate a row is selected
     override  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -100,7 +81,7 @@ class ToDoListViewController: UITableViewController, SwipeTableViewCellDelegate 
     }
     
    
-    //MARK: - Add New Items
+//MARK: - Add New Items
     
     @IBAction func addNewItems(_ sender: UIBarButtonItem) {
         
@@ -134,7 +115,7 @@ class ToDoListViewController: UITableViewController, SwipeTableViewCellDelegate 
     }
     
     
-    //MARK: - Save and load data methods
+//MARK: - Save and load data methods
     
     func loadItem() {
         
@@ -142,7 +123,9 @@ class ToDoListViewController: UITableViewController, SwipeTableViewCellDelegate 
         tableView.reloadData()
     }
 
+    
 //MARK: - Delete Data from Swipe
+    
      func updateModel(at indexPath: IndexPath) {
         if let itemForDelition = itemList?[indexPath.row]
         {
@@ -156,6 +139,8 @@ class ToDoListViewController: UITableViewController, SwipeTableViewCellDelegate 
         }
     }
 }
+
+
 //MARK: - Search Bar Methods
 
 extension ToDoListViewController: UISearchBarDelegate {
@@ -175,5 +160,31 @@ extension ToDoListViewController: UISearchBarDelegate {
                 searchBar.resignFirstResponder()
             }
         }
+    }
+}
+
+
+// MARK: - SwipeTableViewCellDelegate
+
+extension ToDoListViewController: SwipeTableViewCellDelegate {
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+        guard orientation == .right else { return nil }
+        
+        let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
+            // handle action by updating model with deletion
+            self.updateModel(at: indexPath)
+        }
+        
+        // customize the action appearance
+        deleteAction.image = UIImage(named: "Trash")
+        
+        return [deleteAction]
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeOptions {
+        var options = SwipeOptions()
+        options.expansionStyle = .destructive
+        return options
     }
 }
