@@ -12,8 +12,8 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Pkg-hC-bv7" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mNa-EE-88X">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="mNa-EE-88X">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.94901960780000005" green="0.97647058819999999" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <textAttributes key="titleTextAttributes">
@@ -73,7 +73,7 @@
             </objects>
             <point key="canvasLocation" x="2338" y="94"/>
         </scene>
-        <!--To Do List-->
+        <!--Item-->
         <scene sceneID="VLS-Cs-Uid">
             <objects>
                 <tableViewController id="00O-Uu-RcU" customClass="ToDoListViewController" customModule="To_Do_List" customModuleProvider="target" sceneMemberID="viewController">
@@ -94,7 +94,7 @@
                             <outlet property="delegate" destination="00O-Uu-RcU" id="F6I-06-8lE"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="To Do List" id="nkc-Hh-WHn">
+                    <navigationItem key="navigationItem" title="Item" id="nkc-Hh-WHn">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="M5a-DY-Xnp">
                             <connections>
                                 <action selector="addNewItems:" destination="00O-Uu-RcU" id="WLC-Ho-TO2"/>
